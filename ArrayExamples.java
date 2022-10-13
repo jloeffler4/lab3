@@ -35,12 +35,16 @@ public class ArrayExamples {
       }
     }
     double sum = 0;
+    int numLowest = 0; // Tracks the # of lowest items in the array (i.e. number of items not in the
+                       // sum)
     for (double num : arr) {
       if (num != lowest) {
         sum += num;
+      } else {
+        numLowest++;
       }
     }
-    return sum / (arr.length - 1);
+    return sum / (arr.length - numLowest);
   }
 
 }

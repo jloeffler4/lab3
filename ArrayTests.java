@@ -53,4 +53,40 @@ public class ArrayTests {
     int[] input1 = { 3, 2, 1 };
     assertArrayEquals(new int[] { 1, 2, 3 }, ArrayExamples.reversed(input1));
   }
+
+  @Test
+  public void testAverageWithoutLowestLength0() {
+    double[] input1 = {};
+    assertEquals(0.0, ArrayExamples.averageWithoutLowest(input1), 0.0);
+  }
+
+  @Test
+  public void testAverageWithoutLowestLength1() {
+    double[] input1 = { 3 };
+    assertEquals(0.0, ArrayExamples.averageWithoutLowest(input1), 0.0);
+  }
+
+  @Test
+  public void testAverageWithoutLowestLength2() {
+    double[] input1 = { 3, 2 };
+    assertEquals(3.0, ArrayExamples.averageWithoutLowest(input1), 0.0);
+  }
+
+  @Test
+  public void testAverageWithoutLowestLength3() {
+    double[] input1 = { 3, 2, 1 };
+    assertEquals(2.5, ArrayExamples.averageWithoutLowest(input1), 0.0);
+  }
+
+  @Test
+  public void testAverageWithoutLowestRepeating() {
+    double[] input1 = { 4, 3, 1, 1 };
+    assertEquals(3.5, ArrayExamples.averageWithoutLowest(input1), 0.0);
+  }
+
+  @Test
+  public void testAverageWithoutLowestRepeating2() {
+    double[] input1 = { 4, 3, 2, 1, 1, 1, 1 };
+    assertEquals(3.0, ArrayExamples.averageWithoutLowest(input1), 0.0);
+  }
 }
