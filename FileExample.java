@@ -38,15 +38,22 @@ public class FileExample {
 
   */
 
+  static private void addFiles(File f, List<File> result) {
+    if (f.isDirectory()) {
+      File[] paths = f.listFiles();
+      for (File subFile : paths) {
+        addFiles(subFile, result);
+      }
+    } else {
+      result.add(f);
+    }
+  }
+
 	static List<File> getFiles(File start) throws IOException {
 	  File f = start;
 	  List<File> result = new ArrayList<>();
-	  result.add(start);
 	  if(f.isDirectory()) {
-      File[] paths = f.listFiles();
-      for(File subFile: paths) {
-        result.add(subFile);
-      }
+      addFiles(f, result);
 	  }
 	  return result;
 	}
